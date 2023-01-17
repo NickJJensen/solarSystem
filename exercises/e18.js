@@ -5,6 +5,18 @@ import { data } from "../data/data";
 // Return example: 1902
 
 export function getGreatestDiscoveryYear(data) {
+  let years = data.asteroids.map(item => item.discoveryYear);
+  let obj = {};
+  for (let i = 0; i < years.length; i++) {
+   if (obj[years[i]]) {
+     obj[years[i]] += 1;
+   } else {
+     obj[years[i]] = 1;
+   }
+  }
+  let max = Math.max(...Object.values(obj));
+  let most = Object.entries(obj).find(([year, count]) => count === max);
+  return Number(most[0]);
   // Your code goes here...
   // feel free to import your `maxBy` or `minBy` methods from previous lessons
 }
