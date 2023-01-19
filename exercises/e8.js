@@ -5,9 +5,10 @@ import { data } from "../data/data";
 // Return example: 'Planet Name'
 
 export function findPlanetNameByMoon(data, moonName) {
-  return data.planets.filter(planet =>
-    planet.moons && planet.moons.includes(moonName)
-    ) [0].name;
+  return data.planets
+    .find((planet) => 
+      planet.moons && planet.moons.includes(moonName)) 
+    .name;
   // Your code goes here...
 }
 
